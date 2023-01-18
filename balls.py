@@ -43,11 +43,14 @@ class BallFunctions:
             rect = rotimage.get_rect(center = ball.pos)
             GAMEDATA.screen.blit(rotimage, rect)
 
-            
 
-            if ball.melting == 1:
+            if ball.melting == 1 or ball.pos[0] < 150:
+                
+                if ball.pos[0] < 150:
 
-                ball.speed = [-1, 0]
+                    ball.speed = [0, 0]
+                else:
+                    ball.speed = [-1, 0]
                         
                 if ball.scale <= 0.5:
 
